@@ -1,0 +1,17 @@
+# docker-compose.yaml
+version: '3.6'
+services:
+    ng:
+        image: yannoff/ng
+        volumes:
+            - ./:/src
+        working_dir: /src
+        command:
+            - ng
+            - serve
+            - --host
+            - 0.0.0.0
+            - --verbose
+            - --watch
+        ports:
+            - 4200:4200
