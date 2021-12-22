@@ -1,0 +1,4 @@
+tr.odd { background-color: #fff; }
+
+thead,
+tr.even { background-color: #eee; }
