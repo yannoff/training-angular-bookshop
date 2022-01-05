@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterContentInit, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { Book } from './book'
 
 @Component({
@@ -7,7 +7,7 @@ import { Book } from './book'
   styleUrls: ['./booklist.component.css']
 })
 
-export class BooklistComponent implements OnInit {
+export class BooklistComponent implements OnInit, OnChanges, AfterContentInit, OnDestroy {
 
   title:string = "The book list";
   categories:string[] = [];
@@ -31,7 +31,20 @@ export class BooklistComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('onInit');
     this.load();
+  }
+
+  ngAfterContentInit(): void {
+    console.log('afterContentInit');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('onChanges');
+  }
+
+  ngOnDestroy(): void {
+    console.log('onDestroy');
   }
 
   filter() {
