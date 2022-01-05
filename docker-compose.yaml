@@ -11,7 +11,6 @@ services:
             - serve
             - --host
             - 0.0.0.0
-            - --verbose
             - --watch
         ports:
             - 4200:4200
