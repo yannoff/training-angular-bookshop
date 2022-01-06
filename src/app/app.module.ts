@@ -6,17 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BooklistComponent } from './booklist/booklist.component';
 import { DeleteSpacePipe } from './pipes/delete-space.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StarsComponent } from './stars/stars.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooklistComponent,
-    DeleteSpacePipe
+    DeleteSpacePipe,
+    StarsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,5 +8,6 @@ export interface Book {
     editor:string;
     price:string;
     ISBN:string;
+    rating?:number;
 }
 
