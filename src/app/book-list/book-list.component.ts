@@ -2,12 +2,12 @@ import { Component, AfterContentInit, OnInit, OnChanges, SimpleChanges, OnDestro
 import { Book } from './book'
 
 @Component({
-  selector: 'app-booklist',
-  templateUrl: './booklist.component.html',
-  styleUrls: ['./booklist.component.css']
+  selector: 'app-book-list',
+  templateUrl: './book-list.component.html',
+  styleUrls: ['./book-list.component.css']
 })
 
-export class BooklistComponent implements OnInit, OnChanges, AfterContentInit, OnDestroy {
+export class BookListComponent implements OnInit, OnChanges, AfterContentInit, OnDestroy {
 
   title:string = "The book list";
   categories:string[] = [];

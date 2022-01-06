@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BooklistComponent } from './booklist/booklist.component';
+import { BookListComponent } from './book-list/book-list.component';
 import { DeleteSpacePipe } from './pipes/delete-space.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StarsComponent } from './stars/stars.component';
@@ -12,7 +12,7 @@ import { StarsComponent } from './stars/stars.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BooklistComponent,
+    BookListComponent,
     DeleteSpacePipe,
     StarsComponent
   ],
