@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -6,15 +7,13 @@ import { Injectable } from '@angular/core';
 
 export class CategoryService {
 
-    categories:string[] = [ "Novels", "IT Books" ];
+    constructor(private client: HttpClient) { }
 
-    constructor() { }
-
-    getAll():string[] {
-        return this.categories;
+    getAllAsync(): Promise<string[]|undefined> {
+        return this.client.get<string[]|undefined>('api/categories').toPromise();
     }
 
-    get(id: any):string {
-        return this.categories[id];
+    getAsync(id: any): Promise<string|undefined> {
+        return this.client.get<string|undefined>('api/categories/' + id).toPromise();
     }
 }

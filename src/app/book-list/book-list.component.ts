@@ -34,9 +34,9 @@ export class BookListComponent implements OnInit, OnChanges, AfterContentInit, O
 
   ngOnInit(): void {
     console.log('onInit');
-    this.all = this.bookService.getAll();
-    this.categories = this.categoryService.getAll();
-    this.load();
+    this.bookService.getAllAsync().then( (items) => (this.all = this.books = items || []) );
+    this.categoryService.getAllAsync().then( items => this.categories = items || [] );
+    
   }
 
   ngAfterContentInit(): void {
