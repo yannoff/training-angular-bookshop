@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -14,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { MockDB } from './backend/mock-db';
+import { CreateBookComponent } from './create-book/create-book.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { MockDB } from './backend/mock-db';
     StarsComponent,
     HomeComponent,
     NotFoundComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    CreateBookComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,

@@ -25,4 +25,17 @@ export class BookService {
             .pipe(map( books => books && books.filter(b => b.category == category)) )
             .toPromise();
     }
+
+    save(book:Book): any/*Promise<Book|undefined>*/ {
+        let id:number = 0;
+        return this.getAllAsync().then( books => {
+            for (let book of books || []) {
+                if (book.id > id) {
+                    id = book.id;
+                }
+            }
+            book.id = (id + 1);
+            return this.client.post('/api/books', book).toPromise();
+        });
+    }
 }
