@@ -14,13 +14,10 @@ export class BookListComponent implements OnInit, OnChanges, AfterContentInit, O
   title:string = "The book list";
 
   // Category filter possible values
-  categories:string[] = [];
+  categories!: Promise<string[]|undefined>;
 
   // The filtered book collection
-  books:Book[] = [];
-
-  // Referential containing all available books
-  all:Book[] = [];
+  books!: Promise<Book[]|undefined>;
 
   // Default category filter
   category:string = 'ALL';
@@ -28,14 +25,10 @@ export class BookListComponent implements OnInit, OnChanges, AfterContentInit, O
   constructor(private bookService: BookService, private categoryService: CategoryService) {
   }
 
-  load(): void {
-      this.books = this.all;
-  }
-
   ngOnInit(): void {
     console.log('onInit');
-    this.bookService.getAllAsync().then( (items) => (this.all = this.books = items || []) );
-    this.categoryService.getAllAsync().then( items => this.categories = items || [] );
+    this.books = this.bookService.getAllAsync();
+    this.categories = this.categoryService.getAllAsync();
     
   }
 
@@ -56,11 +49,12 @@ export class BookListComponent implements OnInit, OnChanges, AfterContentInit, O
   }
 
   filter() {
-    console.log('Current category: ' + this.category);
-    this.load();
-    if (this.category != 'ALL') {
-        this.books = this.books.filter(p => p.category == this.category);
-    }
+      console.log('Current category: ' + this.category);
+      if (this.category != 'ALL') {
+          this.books = this.bookService.getAllByCategoryAsync(this.category);
+      } else {
+          this.books = this.bookService.getAllAsync();
+      }
   }
 
 }

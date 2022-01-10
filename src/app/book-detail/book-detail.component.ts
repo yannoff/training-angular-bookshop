@@ -13,14 +13,14 @@ export class BookDetailComponent implements OnInit {
   
   public id:string|null = null;
 
-  public book:Book|undefined = undefined;
+  public book!: Promise<Book|undefined>;
 
   constructor(private route: ActivatedRoute, private bookService: BookService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log('Book id: ' + this.id);
-    this.bookService.getAsync(this.id).then( (item) => (this.book = item) && console.log('Book: ', this.book) );
+    this.book = this.bookService.getAsync(this.id);
   }
 
 }

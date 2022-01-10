@@ -1,1 +1,9 @@
-<p>book-detail works!</p>
+<div *ngIf="(book | async) as book">
+    <h1>{{book.title}}</h1>
+    <h2><i>by {{book.author}}</i></h2>
+    <p>&nbsp;</p>
+    <p>{{book.description}}</p>
+    <p>&nbsp;</p>
+    <div>Price: {{book.price.split(' ')[0]|currency: book.price.split(' ')[1]}}</div>
+    <div>ISBN: {{book.ISBN}}</div>
+</div>
