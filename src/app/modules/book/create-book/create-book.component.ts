@@ -4,8 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Book } from 'src/app/models/book';
-import { BookService } from 'src/app/services/book.service';
+import { Book } from '../models/book';
+import { BookService } from '../services/book.service';
 
 @Component({
     selector: 'app-create-book',

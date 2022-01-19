@@ -1,4 +1,4 @@
-import { Book } from 'src/app/models/book';
+import { Book } from './book';
 
 export interface DbSchema {
     books: Book[];

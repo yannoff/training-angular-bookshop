@@ -1,6 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Book } from 'src/app/models/book';
-import { DbSchema } from 'src/app/models/db-schema';
+
+import { Book } from '../modules/book/models/book';
+import { DbSchema } from '../modules/book/models/db-schema';
 
 export class MockDB implements InMemoryDbService {
     

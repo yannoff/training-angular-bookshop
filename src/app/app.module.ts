@@ -1,43 +1,32 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppRoutingModule } from './app-routing.module';
+import { BookModule } from './modules/book/book.module';
 import { AppComponent } from './app.component';
-import { BookListComponent } from './book-list/book-list.component';
-import { DeleteSpacePipe } from './pipes/delete-space.pipe';
-import { StarsComponent } from './stars/stars.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { BookDetailComponent } from './book-detail/book-detail.component';
 import { MockDB } from './backend/mock-db';
-import { CreateBookComponent } from './create-book/create-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookListComponent,
-    DeleteSpacePipe,
-    StarsComponent,
     HomeComponent,
     NotFoundComponent,
-    BookDetailComponent,
-    CreateBookComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     AppRoutingModule,
-    NgbModule,
+    CommonModule,
+    BrowserModule,
+    BookModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(MockDB),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

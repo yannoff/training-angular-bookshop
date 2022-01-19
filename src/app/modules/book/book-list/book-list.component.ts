@@ -1,7 +1,7 @@
 import { Component, AfterContentInit, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
-import { Book } from 'src/app/models/book'
-import { BookService } from 'src/app/services/book.service';
-import { CategoryService } from 'src/app/services/category.service';
+import { Book } from '../models/book'
+import { BookService } from '../services/book.service';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-book-list',
